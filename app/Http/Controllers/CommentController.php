@@ -24,12 +24,14 @@ class CommentController extends Controller
             'text' => 'required'
         ]);
 
+
         //TODO pridelovanie použivatelovi
 
         $attributes['post_id'] = $post->id;
         Comment::create($attributes);
         return redirect('/stena');
     }
+
 
 
 }

@@ -4,17 +4,9 @@
 
     <style>
         table, th, td {
-            /*border-style: solid;*/
             border-width: 3px;
-            /*border-color: wheat;*/
             border-collapse:unset ;
             text-align: center;
-            /*margin-top: 7%;*/
-            /*margin-left: 15%;*/
-        }
-
-        tr:nth-child(2n+1) {
-            background-color: #f8a250;
         }
 
         th {
@@ -22,14 +14,9 @@
             font-weight: bolder;
         }
 
-        tr:hover {
-            background-color: #4237c4;
-        }
-
         .card-body {
             height: 14rem;
             width: 18rem;
-
         }
 
         .card {
@@ -42,11 +29,15 @@
         img {
             max-width: 100%;
         }
+
+        .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+            background-color: #4237c4;
+        }
     </style>
     <body>
 
     <div class="container">
-        <table class="data table table-striped table-dark">
+        <table class="data table table-striped table-dark table-hover">
             <tr>
                 <th>Názov Hry</th>
                 <th>Rok vydania</th>

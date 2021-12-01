@@ -56,7 +56,7 @@ class UserPolicy
     public function update(User $user, User $model)
     {
 //        ddd(auth()->user()->id,$user->id,request()->all(),$model->id);
-        return auth()->user()->id === $model->id;
+        return auth()->user()->id|"admin" === $model->id;
 
     }
 
@@ -70,7 +70,7 @@ class UserPolicy
     public function delete(User $user, User $model)
     {
 
-        return Auth::user()->name == "admin";
+        return Auth::user()->id|"admin" === $model->id;
     }
 
     /**

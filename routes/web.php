@@ -30,11 +30,6 @@ Route::get('/stena', [App\Http\Controllers\PostController::class, 'wall'])->name
 
 
 
-
-
-
-
-
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('user', UserController::class);
@@ -46,8 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'index']);
     Route::post('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'store'])->name('addComment');
-
-
 
 
 });
