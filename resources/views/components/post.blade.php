@@ -1,17 +1,9 @@
-<style>
-    .card {
-        box-shadow: 0 4px 8px rgba(0.5, 0.5, 0.5, 0.5);
-        overflow: hidden;
-        background-color: #2C2F33;
-        border-radius: 10px;
-    }
 
-</style>
-<div class="card m-3" style="width: 26rem; margin: 5px">
+<div class="cardNastenka m-3" style="width: 26rem; margin: 5px">
     <div class="overflow-hidden hover01">
     <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="...">
     </div>
-    <div class="card-body">
+    <div class="card-bodyNastenka">
         <a href="{{ route('addComment',$post->id) }} " class="btn btn-primary">Pridaj komentar</a>
 
 {{--        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-hand-thumbs-up btn-primary rounded" viewBox="-1 6 20 5">--}}

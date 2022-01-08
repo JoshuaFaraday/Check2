@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <style>
-        h2, strong, p {
-            color: #99AAB5;
-        }
-    </style>
+{{--    <style>--}}
+{{--        h2, strong, p {--}}
+{{--            color: #99AAB5;--}}
+{{--        }--}}
+{{--    </style>--}}
     <div class="container contact mt-3">
         <div class="row">
             <div class="col">

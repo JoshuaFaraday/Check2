@@ -18,7 +18,7 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        // return Auth::user()->name == "admin";
+        //return Auth::user()->name == "admin";
         return true;
 
     }

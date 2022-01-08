@@ -1,18 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .card-body,container,row,card,card-header,session,div {
-        text-color: #99AAB5;
+{{--<style>--}}
+{{--    .card-body,container,row,card,card-header,session,div {--}}
+{{--        text-color: #cc0be1;--}}
 
-    }
-</style>
+{{--    }--}}
+
+{{--</style>--}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Users') }}</div>
-
+                    <div class="userheaderindex">
+                    <div class="card-header ">{{ __('Users') }}</div>
+                    </div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

@@ -1,30 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <head>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-
-
-            .d-md-block {
-                background: #383637;
-                opacity: 75%;
-            }
-            .carousel-inner{
-                margin-left: 5%;
-            }
-            .rounded-pill{
-                margin-right: 10%;
-            }
-
-        </style>
-    </head>
-
-
     <div class="container ml-10">
 
         <p class="info">
