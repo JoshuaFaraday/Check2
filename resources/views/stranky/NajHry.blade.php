@@ -2,38 +2,6 @@
 
 @section('content')
 
-    <style>
-        /*table, th, td {*/
-        /*    border-width: 3px;*/
-        /*    border-collapse:unset ;*/
-        /*    text-align: center;*/
-        /*}*/
-
-        /*th {*/
-        /*    background-color: #4c110f;*/
-        /*    font-weight: bolder;*/
-        /*}*/
-
-        /*.card-body {*/
-        /*    height: 14rem;*/
-        /*    width: 18rem;*/
-        /*}*/
-
-        /*.cardNajHry {*/
-        /*    box-shadow: 0 4px 8px rgba(0.5, 0.5, 0.5, 0.5);*/
-        /*    overflow: hidden;*/
-        /*    background-color: #2C2F33;*/
-        /*    border-radius: 10px;*/
-        /*}*/
-
-        /*img {*/
-        /*    max-width: 100%;*/
-        /*}*/
-
-        /*.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {*/
-        /*    background-color: #4237c4;*/
-        /*}*/
-    </style>
     <body>
 
     <div class="container">
@@ -158,6 +126,12 @@
                         <div class="najhrybodycard card-body">
                             <h5 class="card-title">{{$game->name}}</h5>
                             <p class="card-text">{{$game->description}}</p>
+
+                            <div class="border-top border-secondary">
+                                <p class="card-text">{{$game->platform}}</p>
+                                <p class="card-text">{{$game->relase_date}}</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>

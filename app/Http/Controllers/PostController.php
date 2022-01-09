@@ -53,7 +53,8 @@ class PostController extends Controller
             $update = true;
             if ($already_like == $is_like) {
                 $like->delete();
-                return null;
+
+                return [$post->likes()->where('like','=','1')->count(), $post->likes()->where('like','=','0')->count()] ;
             }
         } else {
             $like = new Like();
@@ -69,7 +70,7 @@ class PostController extends Controller
             $like->save();
         }
 
-        return null;
+        return [$post->likes()->where('like','=','1')->count(), $post->likes()->where('like','=','0')->count()];
     }
 
 }

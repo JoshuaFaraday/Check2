@@ -26,10 +26,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/najHry', [App\Http\Controllers\NajhryController::class, 'index'])->name('najhry');
 Route::get('/kontakt', [App\Http\Controllers\Kontakt::class, 'index'])->name('kontakt');
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
-Route::get('/stena', [App\Http\Controllers\PostController::class, 'wall'])->name('wall');
+
 
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/stena', [App\Http\Controllers\PostController::class, 'wall'])->name('wall');
 
     Route::resource('user', UserController::class);
 
