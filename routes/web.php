@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'index']);
     Route::post('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'store'])->name('addComment');
 
-
+    Route::post('/like', [App\Http\Controllers\PostController::class, 'postLike'])->name('like');
 });
 
 Route::group(['middleware' => ['admin']], function () {

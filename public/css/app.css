@@ -5465,8 +5465,8 @@ a.close.disabled {
 .modal-dialog-centered::before {
   display: block;
   height: calc(100vh - 1rem);
-  /*height: -webkit-min-content;*/
-  /*height: -moz-min-content;*/
+  height: -webkit-min-content;
+  height: -moz-min-content;
   height: min-content;
   content: "";
 }
@@ -5576,8 +5576,8 @@ a.close.disabled {
   }
   .modal-dialog-centered::before {
     height: calc(100vh - 3.5rem);
-    /*height: -webkit-min-content;*/
-    /*height: -moz-min-content;*/
+    height: -webkit-min-content;
+    height: -moz-min-content;
     height: min-content;
   }
 
@@ -9901,7 +9901,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-hide {
-  /*font: 0/0 a;*/
+  font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;

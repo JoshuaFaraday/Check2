@@ -12,4 +12,9 @@
 
         </div>
     </div>
+
+    <script>
+        var token = '{{csrf_token()}}';
+        var urlLike = '{{route('like')}}';
+    </script>
 @endsection
