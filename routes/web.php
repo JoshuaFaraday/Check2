@@ -30,13 +30,13 @@ Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->na
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/stena', [App\Http\Controllers\PostController::class, 'wall'])->name('wall');
+    Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts');
 
     Route::resource('user', UserController::class);
 
     Route::get('user/{user}/delete', [UserController::class, 'destroy'])->name('user.delete');
 
-    Route::get('/upload', [App\Http\Controllers\PostController::class, 'index'])->name('upload');
+    Route::get('/upload', [App\Http\Controllers\PostController::class, 'upload'])->name('upload');
     Route::post('/upload', [App\Http\Controllers\PostController::class, 'store'])->name('uploadPost');
 
     Route::get('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'index']);

@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
 
-
     <!-- Latest compiled JavaScript carousel na stranke about -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet"
@@ -37,18 +36,16 @@
         margin-left: 0;
     }
 
-
     .nav-bk4 {
         background: #070000;
         background: -webkit-linear-gradient(to right, #070000, #4C0001, #070000);
         background: linear-gradient(to right, #070000, #4C0001, #070000);
     }
-
 </style>
 
 
 <body>
-<div id="app">
+<div class="d-flex flex-column min-vh-100" id="app">
     <nav class="navbar navbar-expand-md navbar-dark nav-bk4 shadow-sm justify-content-start">
 
         <a class="navbar-brand img-fluid" href="{{ url('/') }}">
@@ -65,35 +62,22 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('najhry') }}">Rebríček najlepších hier</a>
+                        <a class="nav-link" href="{{ route('najhry') }}">Games</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('wall') }}">Nástenka</a>
+                        <a class="nav-link" href="{{ route('posts') }}">Posts</a>
                     </li>
 
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('kontakt') }}">Kontakt</a>
-                    </li>
                     @auth()
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('upload') }}">Nahrať</a>
+                            <a class="nav-link" href="{{ route('upload') }}">Upload post</a>
                         </li>
-                    @endauth
 
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">O nás</a>
-                    </li>
-
-
-                    @auth
-                        <a class="nav-link" href="{{ route('user.index') }}">{{ __('Users') }}</a>
-
+                        <a class="nav-link" href="{{ route('user.index') }}">{{ __('Admin-Users') }}</a>
 
                         @if(Auth::user()->id == 1)
-                            <a class="nav-link" href="{{ route('admin.games') }}">{{ __('Games') }}</a>
+                            <a class="nav-link" href="{{ route('admin.games') }}">{{ __('Admin-Games') }}</a>
                         @endif
                     @endauth
 
@@ -125,6 +109,11 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('user.edit', Auth::user()->id)}}">
+                                {{ __('Edit') }}
+                            </a>
+
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -145,6 +134,35 @@
     <main class="py-4">
         @yield('content')
     </main>
+
+    <footer class="bg-dark text-center text-white p-2 navbar-dark border-top  border-danger mt-auto ">
+
+        <div class="d-flex flex-row justify-content-center navbar-nav">
+
+            <a class="nav-link mr-2" href="{{ route('about') }}">About us</a>
+
+            <a class="nav-link mr-2" href="{{ route('kontakt') }}">Contact</a>
+            <!-- Instagram -->
+            <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #ac2bac;"
+                href="https://www.instagram.com/_andrej_minar/"
+                role="button"
+            ><i class="fab fa-instagram"></i
+                ></a>
+
+            <!-- Github -->
+            <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #333333;"
+                href="#!"
+                role="button"
+            ><i class="fab fa-github"></i
+                ></a>
+
+        </div>
+
+    </footer>
 </div>
 </body>
 </html>

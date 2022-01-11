@@ -67,16 +67,14 @@ body {
 }
 
 .map-container{
-    padding-right:5%;
-    padding-left:1%;
-    height:140%;
+
+    height:100%;
 
 }
 .map-container iframe{
-    padding-right:5%;
-    padding-left:1%;
-    height:140%;
-    width:120%;
+
+    height:100%;
+    width:100%;
 
 }
 td,tr {
@@ -122,12 +120,9 @@ td,tr {
     background: #383637;
     opacity: 75%;
 }
-.carousel-inner{
-    margin-left: 5%;
-}
-.rounded-pill{
-    margin-right: 10%;
-}
+/*.rounded-pill{*/
+/*    margin-right: 10%;*/
+/*}*/
 
 
 .cardNastenka {

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Aginev\Datagrid\Datagrid;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\Collection;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -22,14 +24,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        //get z query dava collection a paginate funguje len na querry nie na collection :)
 
         if (auth()->user()->id !== 1) {
 
-//             $users = User::find(auth()->user()->id);
-
             $users = User::where('id', auth()->user()->id)->get();
-//            ddd($users);
             $grid = new Datagrid($users, $request->get('f', []));
             $grid->setColumn('name', 'full name')
                 ->setColumn('email', 'email address')
@@ -112,8 +110,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $user->password = "";
-        return view('user.edit', ['action' => route('user.update', $user->id), 'method' => 'put', 'model' => $user]);
+        if (Auth::id() == 1 || Auth::id() == $user->id) {
+//            $user->password = "";
+            return view('user.edit', ['action' => route('user.update', $user->id), 'method' => 'put', 'model' => $user]);
+        } else {
+            abort(Response::HTTP_FORBIDDEN);
+            return null;
+        }
     }
 
     /**

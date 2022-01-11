@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container ml-10">
+    <div class="d-flex justify-content-center flex-column">
 
         <p class="info">
             Web o počítačoch a internete
@@ -20,62 +20,57 @@
         </p>
 
 
-        <div class="container mt-3,">
+        <div class="d-flex justify-content-center flex-column mt-3 w-50  align-self-center">
 
-            <div class="col-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
 
-                <!-- Carousel -->
-                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                    @foreach($games as $game)
 
-                    <!-- Indicators/dots -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                    </div>
+                        @if($loop->first)
 
-                    <!-- The slideshow/carousel -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="img/lastofus.png" alt="tlou2" class="d-block" style="width:90%">
-                            <div class="carousel-caption d-md-block rounded-pill">
-                                <h3>The Last of Us 2</h3>
-                                <p class="nazov">Action-adventure game developed by Naughty Dog and published by Sony
-                                    Interactive Entertainment for the PlayStation 4</p>
+                            <li data-target="#carouselExampleIndicators " data-slide-to="{{$loop->index}}"
+                                class="active"></li>
+                        @else
+                            <li data-target="#carouselExampleIndicators " data-slide-to="{{$loop->index}}"></li>
+                        @endif
+                    @endforeach
+                </ol>
+
+                <div class="carousel-inner">
+                    @foreach($games as $game)
+
+                        @if($loop->first)
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ asset('storage/' . $game->image) }}"
+                                     alt="{{$game->name}}">
+                                <div class="carousel-caption d-none d-md-block rounded-pill">
+                                    <h5>...</h5>
+                                    <p>...</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/the_witcher_3___wallpaper_hd_4k_by_seiikya_d989ila-fullview.jpg" alt="Witcher"
-                                 class="d-block" style="width:90%">
-                            <div class="carousel-caption d-md-block rounded-pill">
-                                <h3 class="text-background-dark">
-                                    The Witcher 3: Wild Hunt</h3>
-                                <p class="nazov">Professional Monster Hunter</p>
+                        @else
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{ asset('storage/' . $game->image) }}"
+                                     alt="{{$game->name}}">
+                                <div class="carousel-caption d-none d-md-block rounded-pill">
+                                    <h5>...</h5>
+                                    <p>...</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/frostpunk.jpg" alt="lol" class="d-block" style="width:90%">
-                            <div class="carousel-caption d-md-block rounded-pill">
-                                <h3>League of Legends</h3>
-                                <p class="nazov">Rakovina</p>
-                            </div>
-                        </div>
-                    </div>
+                        @endif
+                    @endforeach
 
-                    <!-- Left and right controls/icons -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
                 </div>
-
-
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>
-    </body>
-    </html>
-
 @endsection

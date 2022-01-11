@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('stranky.upload');
+        return view('stranky.posts');
     }
 
     public function store()
@@ -27,12 +27,12 @@ class PostController extends Controller
 
 
         Post::create($attributes);
-        return redirect('/stena');
+        return redirect(route('posts'));
     }
 
-    public function wall()
+    public function upload()
     {
-        return view('stranky.stena');
+        return view('stranky.upload');
     }
 
     public function postLike(Request $request)
