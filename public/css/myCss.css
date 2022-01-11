@@ -180,4 +180,15 @@ border-width: 3px;
 .userheaderindex{
     background-color: #1b2838;
 }
+
+.card-text {
+    /*!*white-space: nowrap;*!*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 /*koniec mojeho css*/

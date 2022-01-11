@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container-flex">
-    <div class="row justify-content-center">
+    <div class="d-flex justify-content-center">
         <div class="col-md-8">
             <form method="post" enctype="multipart/form-data" action="{{ route('uploadPost') }}">
                 @csrf
