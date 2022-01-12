@@ -24,41 +24,16 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        abort(Response::HTTP_FORBIDDEN);
+        return null;
+    }
 
-        if (auth()->user()->id !== 1) {
-
-            $users = User::where('id', auth()->user()->id)->get();
-            $grid = new Datagrid($users, $request->get('f', []));
-            $grid->setColumn('name', 'full name')
-                ->setColumn('email', 'email address')
-                ->setActionColumn([
-                    'wrapper' => function ($value, $row) {
-
-                        return '<a href="' . route('user.edit', [$row->id]) . '" title="Edit" class="btn btn-sn btn-primary">Edit</a>
-                        <a href="' . route('user.delete', $row->id) . '" title="Delete" data-method="DELETE" class="btn btn-sn btn-danger" data-confirm="Are you sure?">Delete</a>';
-
-                    }
-                ]);
-            return view('user.index', ['grid' => $grid]);
-
-        } else {
-            $users = User::paginate(25);
-            $grid = new Datagrid($users, $request->get('f', []));
-            $grid->setColumn('name', 'full name')
-                ->setColumn('email', 'email address')
-                ->setActionColumn([
-                    'wrapper' => function ($value, $row) {
-
-                        return '<a href="' . route('user.edit', [$row->id]) . '" title="Edit" class="btn btn-sn btn-primary">Edit</a>
-                        <a href="' . route('user.delete', $row->id) . '" title="Delete" data-method="DELETE" class="btn btn-sn btn-danger" data-confirm="Are you sure?">Delete</a>';
-
-                    }
-                ]);
-            return view('user.index', ['grid' => $grid]);
-
-        }
-
-
+    public function adminIndex(Request $request)
+    {
+//        ddd(User::all());
+        return view('admin.users', [
+            'users' => User::all()
+        ]);
     }
 
     /**
@@ -88,7 +63,7 @@ class UserController extends Controller
 
         $user = User::create($request->all());
         $user->save();
-        return redirect()->route('user.index');
+        return redirect()->route('admin.users');
     }
 
     /**
@@ -119,6 +94,14 @@ class UserController extends Controller
         }
     }
 
+    public function adminEdit(User $user)
+    {
+
+        return view('admin.users.edit', [
+            'user' => $user
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -135,7 +118,18 @@ class UserController extends Controller
             'password' => 'required|min:8|confirmed'
         ]);
         $user->update($request->all());
-        return redirect()->route('user.index');
+        return redirect()->route('najhry');
+    }
+
+    public function adminUpdate(User $user)
+    {
+        $attributes = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'required|min:8|confirmed'
+        ]);
+        $user->update($attributes);
+        return redirect()->route('admin.users');
     }
 
     /**
@@ -147,7 +141,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('admin.users');
     }
 
 }

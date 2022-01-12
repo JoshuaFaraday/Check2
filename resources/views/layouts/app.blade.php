@@ -73,10 +73,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('upload') }}">Upload post</a>
                         </li>
-
-                        <a class="nav-link" href="{{ route('user.index') }}">{{ __('Admin-Users') }}</a>
-
                         @if(Auth::user()->id == 1)
+                            <a class="nav-link" href="{{ route('admin.users') }}">{{ __('Admin-Users') }}</a>
                             <a class="nav-link" href="{{ route('admin.games') }}">{{ __('Admin-Games') }}</a>
                         @endif
                     @endauth
@@ -155,7 +153,7 @@
             <a
                 class="btn btn-primary btn-floating m-1"
                 style="background-color: #333333;"
-                href="#!"
+                href="https://github.com/JoshuaFaraday/Check2.git"
                 role="button"
             ><i class="fab fa-github"></i
                 ></a>

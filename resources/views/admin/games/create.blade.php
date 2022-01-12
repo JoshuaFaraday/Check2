@@ -19,11 +19,13 @@
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Relase date</label>
-                            <input type="number" id="relase_date" name="relase_date" class="form-control" min="1900" max="2099" step="1">
+                            <input type="number" id="relase_date" name="relase_date" class="form-control" min="1900"
+                                   max="2099" step="1">
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Platform</label>
-                            <input type="text" id="platform" class="form-control" name="platform" placeholder="PC/PS/XBOX">
+                            <input type="text" id="platform" class="form-control" name="platform"
+                                   placeholder="PC/PS/XBOX">
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Genre</label>
@@ -35,11 +37,13 @@
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Rating %</label>
-                            <input type="number" id="relase_date" name="rating" class="form-control" min="0" max="100" step="1">
+                            <input type="number" id="relase_date" name="rating" class="form-control" min="0" max="100"
+                                   step="1">
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Description</label>
-                            <textarea class="border border-secondary p-2 w-100" id="description" rows="5" name="description"
+                            <textarea class="border border-secondary p-2 w-100" id="description" rows="5"
+                                      name="description"
                             ></textarea>
                         </div>
 

@@ -13,7 +13,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         @include('user.form')
                     </div>
                 </div>

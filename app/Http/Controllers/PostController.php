@@ -10,9 +10,16 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
 
-    public function index()
+    public function indexAll()
     {
         return view('stranky.posts');
+    }
+
+    public function index(Post $post)
+    {
+        return view('stranky.post',[
+            'post'=>$post
+        ]);
     }
 
     public function store()
@@ -20,6 +27,8 @@ class PostController extends Controller
 
         $attributes = request()->validate([
             'image' => 'required|image',
+            'title'=> 'required|string',
+            'text'=>'required|string',
 
         ]);
         $path = request()->file('image')->store('posts', 'public');

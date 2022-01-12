@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Game;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
 
         Game::factory()->create([
-            'image'=> 'games/witcher3.jpg',
+            'image' => 'games/witcher3.jpg',
             'name' => 'The Witcher 3: Wild Hunt',
             'relase_date' => '2015',
             'platform' => 'PC/PS4/XBOX',
@@ -39,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         ]);
         Game::factory()->create([
-            'image'=> 'games/tlou2.png',
+            'image' => 'games/tlou2.png',
             'name' => 'The Last of Us 2',
             'relase_date' => '2020',
             'platform' => 'PS4',
@@ -50,7 +51,7 @@ class DatabaseSeeder extends Seeder
 
         ]);
         Game::factory()->create([
-            'image'=> 'games/got.jpg',
+            'image' => 'games/got.jpg',
             'name' => 'Ghost of Tsushima',
             'relase_date' => '2020',
             'platform' => 'PS4',
@@ -61,7 +62,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Game::factory()->create([
-            'image'=> 'games/rdr.jpg',
+            'image' => 'games/rdr.jpg',
             'name' => 'Red Dead Redemption 2',
             'relase_date' => '2018',
             'platform' => 'PC/PS4/XBOX',
@@ -92,7 +93,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Game::factory()->create([
-            'image'=> 'games/frost.jpg',
+            'image' => 'games/frost.jpg',
             'name' => 'Frostpunk',
             'relase_date' => '2018',
             'platform' => 'PC/PS4/XBOX/Android',
@@ -131,6 +132,79 @@ class DatabaseSeeder extends Seeder
             'rating' => 90,
             'description' => 'Assassins Creed: Valhalla is the twelfth main installment in the Assassins Creed series developed by Ubisoft. In the game, the player takes control of Eivor, a Viking from Norway who participated in the Norse invasion of England during the 9th century'
         ]);
+
+        Post::factory()->create([
+            'image' => 'posts/ycmR55MJ7YOXLOiY7cdNIIaOdfKwPZ5xeE0Xv8zh.webp',
+            'title' => 'Jedi Fallen Order',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/TOU0t7kCDe6H8XH6tkyalqSPR2WSyePQHYjhVHDj.png',
+            'title' => 'Witcher 3',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/mIcoiYDQA0McWsVYdCIG6tT0NgwqD1O5zezP6sYU.jpg',
+            'title' => 'LOL',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/zI2hGa8Lrn9RRIjMPeLNAcPEChqpVXsASOZZbSUx.jpg',
+            'title' => 'The last of us 2',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/XRfdVP5nyuxkBySuP0I5k43KaHVI6KeBk9ElRHJU.webp',
+            'title' => 'Metro',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/XRfdVP5nyuxkBySuP0I5k43KaHVI6KeBk9ElRHJU.webp',
+            'title' => 'Metro',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/lIkSJ8JT1ReJBa6UPmFer62hrdjbkzt1qQkiTq2T.jpg',
+            'title' => 'RDR 2',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/e8S6eHB1zUG3ds9Rtu19KadIds3btkmAHTA1lj7h.webp',
+            'title' => 'Frostpunk',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/x4N1wgUTmv4C9iT9m61nFXeUizEC9GrkGRXMsvfH.jpg',
+            'title' => 'Cyberpunk',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/JbpmsJhYml8Zw5ART75gQM6Nkjh2dym2T5UoZjlj.webp',
+            'title' => 'AC Valhala',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/NxB4YyuR9cPf58e31bC5ouUuGSXSxs62ymoaZucx.webp',
+            'title' => 'Doom Eternal',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
+        Post::factory()->create([
+            'image' => 'posts/sPDp1hPaiHKlwOLIeSpDWUEqcBwWgmgXL3r31jBG.webp',
+            'title' => 'Tlou 2',
+            'text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+        ]);
+
 
 
     }

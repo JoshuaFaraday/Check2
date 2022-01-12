@@ -1,4 +1,3 @@
-
 <div class="form-group text-danger">        {{--vypíše všetky chyby (meno email heslo) validator--}}
     @foreach($errors->all() as $error)
         {{ $error }}<br>
@@ -37,3 +36,4 @@
         <input type="submit" class="btn btn-primary form-control">
     </div>
 </form>
+
