@@ -23,6 +23,7 @@
                         <form method="post"
                               action="{{route('admin.users.store')}}"> {{--premenna zavisi ci budeme vytvarat noveho uzivatela alebo editovat existujuceho--}}
                             @csrf {{--ochrana formulara--}}
+                            @method('POST')
                             <div class="form-group">
                                 <label for="name">Full name</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Full name"

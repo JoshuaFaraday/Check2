@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -26,10 +27,11 @@ class CommentController extends Controller
 
 
         //TODO pridelovanie použivatelovi
-
+//        ddd(Auth::id());
+        $attributes['user_id'] =  Auth::id();
         $attributes['post_id'] = $post->id;
         Comment::create($attributes);
-        return redirect('/stena');
+        return redirect(route('post',$post->id));
     }
 
 

@@ -1,4 +1,4 @@
-<div class="cardNastenka m-3" style="width: 26rem; margin: 5px">
+<div class="cardNastenka m-3" style="width: 25.7rem; margin: 5px">
     <div class="overflow-hidden hover01">
         <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="...">
     </div>

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex justify-content-center flex-column align-self-center">
+    <div class="d-flex justify-content-center flex-column">
         <div class="d-flex justify-content-center flex-column align-self-center">
         <h2>Fakulta riadenia a informatiky Žilinskej univerzity v Žiline</h2>
 
-        <strong class="address">Address: Univerzitná 8215, 010 26 Žilina
+        <strong class="address align-self-center">Address: Univerzitná 8215, 010 26 Žilina
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                  class="bi bi-geo-alt" viewBox="0 0 16 16">
                 <path
@@ -13,14 +13,14 @@
                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
             </svg>
         </strong>
-        <p class="telNumber"> Telephone Number: 041/513 11 11
+        <p class="telNumber align-self-center"> Telephone Number: 041/513 11 11
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                  class="bi bi-telephone" viewBox="0 0 16 16">
                 <path
                     d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
             </svg>
         </p>
-        <p class="email font-weight-bolder"> email: fri@fri.sk
+        <p class="email font-weight-bolder align-self-center"> email: fri@fri.sk
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                  class="bi bi-mailbox" viewBox="0 0 16 16">
                 <path

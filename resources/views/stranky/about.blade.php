@@ -54,8 +54,9 @@
                                 <img class="d-block w-100" src="{{ asset('storage/' . $game->image) }}"
                                      alt="{{$game->name}}">
                                 <div class="carousel-caption d-none d-md-block rounded-pill">
-                                    <h5>...</h5>
-                                    <p>...</p>
+                                    <h4>{{$game->name}}</h4>
+                                    <h5>{{$game->genre}}</h5>
+                                    <p>{{$game->rating}}%</p>
                                 </div>
                             </div>
                         @endif

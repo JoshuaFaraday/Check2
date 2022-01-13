@@ -27,6 +27,10 @@ Route::get('/najHry', [App\Http\Controllers\NajhryController::class, 'index'])->
 Route::get('/kontakt', [App\Http\Controllers\Kontakt::class, 'index'])->name('kontakt');
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
+Route::get('/test', function (){
+    return view('test', ['post'=>\App\Models\Post::first()]);
+})->name('about');
+
 
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'indexAll'])->name('posts');
 Route::get('/posts/{post}', [App\Http\Controllers\PostController::class, 'index'])->name('post');
@@ -40,7 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/upload', [App\Http\Controllers\PostController::class, 'upload'])->name('upload');
     Route::post('/upload', [App\Http\Controllers\PostController::class, 'store'])->name('uploadPost');
 
-    Route::get('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'index']);
+    Route::get('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'index'])->name('post.add.comment');
     Route::post('/addcomment/{post}', [App\Http\Controllers\CommentController::class, 'store'])->name('addComment');
 
 
