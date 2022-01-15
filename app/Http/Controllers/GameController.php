@@ -30,7 +30,7 @@ class GameController extends Controller
             'genre' => 'required|string',
             'HW_requirements' => 'required|string',
             'rating' => 'required|integer|min:0|max:100',
-            'description' => 'required|string'
+            'description' => 'required|string|max:100'
         ]);
         $path = request()->file('image')->store('games', 'public');
         $attributes['image'] = $path;

@@ -50,3 +50,64 @@ $('.like').on('click', function (event) {
             $(event.target).parent().next().text(data[1]);
         })
 });
+
+
+$('.commentButton').on('click', function (event) {
+    event.preventDefault();
+    $('#commentWrapper').slideToggle('fast')
+});
+
+$('#commentText').keypress(function (event) {
+    if (event.keyCode === 13 && !event.shiftKey) {
+
+        event.preventDefault();
+        let temp = event.target;
+
+        let commentText = $('#commentText').val();
+
+        postId = temp.parentNode.dataset['postid'];
+        $.ajax({
+            method: 'POST',
+            url: urlComment,
+            data: {commentText: commentText, postId: postId, _token: token},
+
+        })
+            .done(function (data) {
+                /* tu zmenit stranku */
+
+                if (data !== false) {
+
+                    $('#commentsList').prepend(' <div class="d-flex justify-content mt-2 border-top border-dark">\n' +
+                        '                            <div class="col-1 p-0  mw-100">\n' +
+                        '\n' +
+                        '                                <img\n' +
+                        '                                    src="https://eu.ui-avatars.com/api/?size=75&name=' + data.author + '&background=random">\n' +
+                        '                            </div>\n' +
+                        '                            <div class="col-11 p-0 d-flex flex-column">\n' +
+                        '                                <div>\n' +
+                        '                                    <div class="pt-2 pl-2">\n' +
+                        '                                        <h6>' + data.author + '</h6>\n' +
+                        '                                        <p class="comment-timestamp"><i\n' +
+                        '                                                class="far fa-clock pr-1"></i>' + data.timestamp + '\n' +
+                        '                                        </p>\n' +
+                        '                                    </div>\n' +
+                        '                                </div>\n' +
+                        '                                <div class="pt-2 pl-2">\n' +
+                        '                                    <p>' + data.text + '</p>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                        </div>');
+                    $('#commentWrapper').slideToggle('fast');
+                    $('#commentText').val('');
+                }
+
+
+            })
+            .fail(function (data) {
+                if (data.status === 422) {
+                    $('#commentsList-p').toggle().delay(3000).fadeToggle(500);
+                }
+            })
+    }
+});
+

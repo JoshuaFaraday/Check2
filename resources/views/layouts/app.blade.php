@@ -70,12 +70,13 @@
                     </li>
 
                     @auth()
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('upload') }}">Upload post</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{ route('upload') }}">Upload post</a>--}}
+{{--                        </li>--}}
                         @if(Auth::user()->id == 1)
                             <a class="nav-link" href="{{ route('admin.users') }}">{{ __('Admin-Users') }}</a>
                             <a class="nav-link" href="{{ route('admin.games') }}">{{ __('Admin-Games') }}</a>
+                            <a class="nav-link" href="{{ route('admin.posts') }}">{{ __('Admin-Posts') }}</a>
                         @endif
                     @endauth
 

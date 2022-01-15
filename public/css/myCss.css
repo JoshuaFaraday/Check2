@@ -248,13 +248,9 @@ td, tr {
     font-size: 12px;
 }
 
-/*.pillTitle {*/
-
-/*    background-color: rgba(0, 0, 0, 0.66);*/
-/*    padding: 7px 17px;*/
-/*    text-align: center;*/
-/*    margin: 4px 2px;*/
-/*    border-radius: 12px;*/
-
-/*}*/
-
+textarea {
+    white-space: pre-wrap;
+}
+.preserve {
+    white-space: pre-wrap;
+}

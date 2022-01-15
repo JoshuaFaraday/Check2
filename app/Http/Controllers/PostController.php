@@ -22,6 +22,18 @@ class PostController extends Controller
         ]);
     }
 
+
+    public function adminIndex() {
+        return view('admin.posts',['posts'=>Post::all()]);
+    }
+
+    public function create()
+    {
+        return view('admin.posts.create');
+
+    }
+
+
     public function store()
     {
 
@@ -36,13 +48,34 @@ class PostController extends Controller
 
 
         Post::create($attributes);
-        return redirect(route('posts'));
+        return redirect(route('admin.posts'));
     }
 
-    public function upload()
+    public function destroy(Post $post)
     {
-        return view('stranky.upload');
+        $post->delete();
+        return redirect()->route('admin.posts');
     }
+
+    public function adminEdit(Post $post)
+    {
+        return view('admin.posts.edit', ['post' => $post]);
+    }
+
+    public function adminUpdate(Post $post)
+    {
+        $attributes = request()->validate([
+            'image' => 'required|image',
+            'title'=> 'required|string',
+            'text'=>'required|string',
+        ]);
+        $path = request()->file('image')->store('posts', 'public');
+        $attributes['image'] = $path;
+
+        $post->update($attributes);
+        return redirect()->route('admin.posts');
+    }
+
 
     public function postLike(Request $request)
     {

@@ -18,22 +18,40 @@ class CommentController extends Controller
         ]);
     }
 
-    public function store(Post $post)
+    public function store(Request $request)
     {
-
-        $attributes = request()->validate([
-            'text' => 'required'
+        $this->validate($request, [
+            'commentText' => 'required|string'
         ]);
+        $commentText = $request['commentText'];
+        $postId = $request['postId'];
+        if (empty($commentText)) {
+            $status = false;
+            return response()->json($status);
 
+        } else {
+            $comment = new Comment();
+            $comment->text = $commentText;
+            $comment->user_id = Auth::user()->id;
+            $comment->post_id = $postId;
+            $comment->save();
+            return [
+                'author' => $comment->author()->first()->name,
+                'timestamp' => $comment->created_at->diffForHumans(),
+                'text' => $comment->text
+            ];
+        }
 
-        //TODO pridelovanie použivatelovi
-//        ddd(Auth::id());
-        $attributes['user_id'] =  Auth::id();
-        $attributes['post_id'] = $post->id;
-        Comment::create($attributes);
-        return redirect(route('post',$post->id));
     }
 
+    public function destroy(Comment $comment)
+    {
+        $post_id = $comment->post()->first()->id;
+        if (Auth::user()->id == 1 || Auth::user()->id == $comment->author()->first()->id ) {
+            $comment->delete();
+        }
+        return redirect()->back();
+    }
 
 
 }
