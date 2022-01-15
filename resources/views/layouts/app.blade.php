@@ -62,7 +62,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('najhry') }}">Games</a>
+                        <a class="nav-link" href="{{ route('topGames') }}">Games</a>
                     </li>
 
                     <li class="nav-item">
@@ -140,7 +140,7 @@
 
             <a class="nav-link mr-2" href="{{ route('about') }}">About us</a>
 
-            <a class="nav-link mr-2" href="{{ route('kontakt') }}">Contact</a>
+            <a class="nav-link mr-2" href="{{ route('contact') }}">Contact</a>
             <!-- Instagram -->
             <a
                 class="btn btn-primary btn-floating m-1"

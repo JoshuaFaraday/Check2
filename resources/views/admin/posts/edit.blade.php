@@ -20,7 +20,7 @@
 
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Image</label>
-                            <input name="image" class="form-control mb-3" id="image" type="file">
+                            <input required name="image" class="form-control mb-3" id="image" type="file">
                             <div class="form-group text-danger">
                                 {{$errors->first('image')}}
                             </div>

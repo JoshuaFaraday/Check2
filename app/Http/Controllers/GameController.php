@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
+    public function index()
+    {
+        return view('stranky.topGames',['games'=>Game::all()->sortByDesc('rating')]);
+    }
 
     public function adminIndex() {
         return view('admin.games',['games'=>Game::all()]);
@@ -26,9 +30,9 @@ class GameController extends Controller
             'image' => 'required|image',
             'name' => 'required|string',
             'relase_date' => 'required|digits:4|integer|min:1900|max:2099',
-            'platform' => 'required|string',
-            'genre' => 'required|string',
-            'HW_requirements' => 'required|string',
+            'platform' => 'required|string|max:30',
+            'genre' => 'required|string|max:30',
+            'HW_requirements' => 'required|string|max:15',
             'rating' => 'required|integer|min:0|max:100',
             'description' => 'required|string|max:100'
         ]);
@@ -57,11 +61,11 @@ class GameController extends Controller
             'image' => 'required|image',
             'name' => 'required|string',
             'relase_date' => 'required|digits:4|integer|min:1900|max:2099',
-            'platform' => 'required|string',
-            'genre' => 'required|string',
-            'HW_requirements' => 'required|string',
+            'platform' => 'required|string|max:30',
+            'genre' => 'required|string|max:30',
+            'HW_requirements' => 'required|string|max:15',
             'rating' => 'required|integer|min:0|max:100',
-            'description' => 'required|string'
+            'description' => 'required|string|max:100'
 
         ]);
         $path = request()->file('image')->store('games', 'public');

@@ -20,14 +20,14 @@
                             @method('POST')
                             <div class="form-group">
                                 <label for="name">Full name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Full name"
+                                <input required type="text" class="form-control" id="name" name="name" placeholder="Full name"
                                        value="{{old('name')}}">
                                 {{--    old vrati to čo mam už napr rozpísane napr pri editacii rozpisane meno a netrafim heslo tak rozpisane meno zostane nezmenene--}}
                                 {{$errors->first('name')}}
                             </div>
                             <div class="form-group">
                                 <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email"
+                                <input required type="email" class="form-control" id="email" name="email"
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Email" value="{{old('email')}}">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with
@@ -37,14 +37,14 @@
 
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
+                                <input required type="password" class="form-control" id="password" name="password"
                                        placeholder="Password">
                                 {{$errors->first('password')}}
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password again</label>
-                                <input type="password" class="form-control" id="password" name="password_confirmation"
+                                <input required type="password" class="form-control" id="password" name="password_confirmation"
                                        placeholder="Password again">
                                 {{$errors->first('password_confirmation')}}
                             </div>

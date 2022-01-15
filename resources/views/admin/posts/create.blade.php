@@ -8,26 +8,34 @@
                     @csrf
                     <div>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label">Image</label>
-                            <img id="preview" src="#" alt="preview" width="200px">
-                            <input name="image" required class="form-control mb-3" id="image" type="file">
+                            <label for="formFile" class="form-label">Choose Image</label>
+
+                            <input required name="image"  class="form-control mb-3 col-3 mb-2" id="image" type="file" value="{{old('image')}}">
                             <div class="form-group text-danger">
                                 {{$errors->first('image')}}
+                            </div>
+                            <div class="d-flex flex-column">
+                            Preview:
+                            <img id="preview" src="{{ asset('storage/placeholder.jpg') }}" alt="preview" width="200px">
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
-                            <input name="title" required class="form-control mb-3" id="title" type="text">
+                            <input required name="title"  class="form-control mb-3" id="title" type="text" value="{{old('title')}}">
+                            <div class="form-group text-danger">
                             {{$errors->first('title')}}
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="text" class="form-label">Text</label>
                             <textarea required class="border border-secondary p-2 w-100" id="text" rows="5"
                                       name="text"
-                            ></textarea>
+                            >{{old('text')}}</textarea>
+                            <div class="form-group text-danger">
                             {{$errors->first('text')}}
+                            </div>
                         </div>
 
                         <div class="mb-3">

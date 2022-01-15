@@ -31,7 +31,7 @@
                         @auth
                         <a href="#" class="commentButton btn btn-secondary">Add comment</a>
                         <div style="display: none " id="commentWrapper" data-postid="{{$post->id}}">
-                            <textarea class="form-control" rows="5" name="commentText" id="commentText"></textarea>
+                            <textarea class="form-control" rows="5" name="commentText" id="commentText"></textarea> /*validacia spravena cez ajax*/
                             <p id="commentsList-p" class="text-danger" style="display: none">Comment can not be
                                 empty!</p>
 

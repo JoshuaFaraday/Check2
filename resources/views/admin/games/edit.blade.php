@@ -21,49 +21,49 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Image</label>
-                            <input name="image" class="form-control mb-3" id="image" type="file">
+                            <input required name="image" class="form-control mb-3" id="image" type="file">
                             <div class="form-group text-danger">
                                 {{$errors->first('image')}}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter name" value="{{$game->name}}">
+                            <input required type="text" id="name" name="name" class="form-control" placeholder="Enter name" value="{{$game->name}}">
                             <div class="form-group text-danger">
                                 {{$errors->first('name')}}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Relase date</label>
-                            <input type="number" id="relase_date" name="relase_date" class="form-control" min="1900" max="2099" step="1" value="{{$game->relase_date}}">
+                            <input required type="number" id="relase_date" name="relase_date" class="form-control" min="1900" max="2099" step="1" value="{{$game->relase_date}}">
                             <div class="form-group text-danger">
                                 {{$errors->first('relase_date')}}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Platform</label>
-                            <input type="text" id="platform" class="form-control" name="platform" placeholder="PC/PS/XBOX" value="{{$game->platform}}">
+                            <input required type="text" id="platform" class="form-control" name="platform" placeholder="PC/PS/XBOX" value="{{$game->platform}}">
                             <div class="form-group text-danger">
                                 {{$errors->first('platform')}}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Genre</label>
-                            <input type="text" id="genre" class="form-control" name="genre" placeholder="RPG" value="{{$game->genre}}">
+                            <input required type="text" id="genre" class="form-control" name="genre" placeholder="RPG" value="{{$game->genre}}">
                             <div class="form-group text-danger">
                                 {{$errors->first('genre')}}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">HW requirements</label>
-                            <input type="text" id="HW requirments" class="form-control" name="HW_requirements"  value="{{$game->HW_requirements}}">
+                            <input required type="text" id="HW requirments" class="form-control" name="HW_requirements"  value="{{$game->HW_requirements}}">
                             <div class="form-group text-danger">
                                 {{$errors->first('HW_requirements')}}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Rating %</label>
-                            <input type="number" id="relase_date" name="rating" class="form-control" min="0" max="100" step="1" value="{{$game->rating}}">
+                            <input required  type="number" id="relase_date" name="rating" class="form-control" min="0" max="100" step="1" value="{{$game->rating}}">
                             <div class="form-group text-danger">
                                 {{$errors->first('rating')}}
                             </div>

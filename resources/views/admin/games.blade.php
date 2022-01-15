@@ -13,8 +13,9 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Created at</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Rating</th>
+                        <th scope="col">Created at</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -23,8 +24,11 @@
                         <tr>
                             <th scope="row">{{$game->id}}</th>
                             <td>{{$game->name}}</td>
-                            <td>{{$game->created_at}}</td>
+                            <td>
+                                <img width="40px" src="{{ asset('storage/' . $game->image) }}">
+                            </td>
                             <td>{{$game->rating}} %</td>
+                            <td>{{$game->created_at}}</td>
                             <td>
                                 <div class="d-flex justify-content-around">
                                     <a href="{{route('admin.games.edit', $game->id)}}" title="Edit"
@@ -34,7 +38,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" title="Delete" class="btn btn-sn btn-danger"
-                                                data-confirm="Are you sure?"><i class="far fa-trash-alt"></i></button>
+                                        ><i class="far fa-trash-alt"></i></button>
                                     </form>
                                 </div>
                             </td>

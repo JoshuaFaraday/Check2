@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\NajhryController::class, 'index'])->name('najhry');
+Route::get('/', [App\Http\Controllers\GameController::class, 'index'])->name('topGames');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/najHry', [App\Http\Controllers\NajhryController::class, 'index'])->name('najhry');
-Route::get('/kontakt', [App\Http\Controllers\Kontakt::class, 'index'])->name('kontakt');
+Route::get('/topGames', [App\Http\Controllers\GameController::class, 'index'])->name('topGames');
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
 //Route::get('/test', function (){
