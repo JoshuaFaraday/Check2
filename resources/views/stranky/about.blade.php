@@ -4,31 +4,24 @@
     <div class="d-flex justify-content-center flex-column">
 
         <p class="info">
-            Web o počítačoch a internete
-            🎮 Hry a všetko čo o nich chcete vedieť denne aktualizované na vašej obľúbenej stránke.
+            Web about computers and internet
+            🎮 Games and all what you want to know about them, daily actualised on your favorite page.
         </p>
-
-        <p class="Novinky"> ▪️ Novinky </p>
-        <p class="Recenzie">▪️ Recenzie </p>
-        <p class="Rozhovory">▪️ Rozhovory </p>
-        <p class="Videa">▪️ Videá </p>
-
+        <p class="Novinky"> ▪️ News </p>
+        <p class="Recenzie">▪️ Reviews </p>
+        <p class="Rozhovory">▪️ Interviews </p>
+        <p class="Videa">▪️ Videos </p>
 
         <p class="info">
-            Hráme sa celé dni na PC, konzolách, handheldoch, mobiloch, aby sme o tom mohli písať. Nájdete nás na
+            We play all day on PCs, consoles, handhelds, mobile phones to we can write about it. You can find us at
             www.sector.sk
         </p>
 
-
         <div class="d-flex justify-content-center flex-column mt-3 w-50  align-self-center">
-
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-
                     @foreach($games as $game)
-
                         @if($loop->first)
-
                             <li data-target="#carouselExampleIndicators " data-slide-to="{{$loop->index}}"
                                 class="active"></li>
                         @else
@@ -45,8 +38,9 @@
                                 <img class="d-block w-100" src="{{ asset('storage/' . $game->image) }}"
                                      alt="{{$game->name}}">
                                 <div class="carousel-caption d-none d-md-block rounded-pill">
-                                    <h5>...</h5>
-                                    <p>...</p>
+                                    <h4>{{$game->name}}</h4>
+                                    <h5>{{$game->genre}}</h5>
+                                    <p>{{$game->rating}}%</p>
                                 </div>
                             </div>
                         @else
@@ -61,7 +55,6 @@
                             </div>
                         @endif
                     @endforeach
-
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

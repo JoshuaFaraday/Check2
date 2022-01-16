@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Aginev\Datagrid\Datagrid;
+use App\Http\Requests\Users\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,16 +25,14 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        abort(Response::HTTP_FORBIDDEN);
-        return null;
-    }
-
-    public function adminIndex(Request $request)
-    {
-//        ddd(User::all());
-        return view('admin.users', [
-            'users' => User::all()
-        ]);
+        if ($request->is('admin/*')) {
+            return view('admin.users', [
+                'users' => User::all()
+            ]);
+        } else {
+            abort(Response::HTTP_FORBIDDEN);
+            return null;
+        }
     }
 
     /**
@@ -52,16 +51,9 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,',
-            'password' => 'required|min:8|confirmed'
-        ]);
-
-
-        $user = User::create($request->all());
+        $user = User::create($request->validated());
         $user->save();
         return redirect()->route('admin.users');
     }
@@ -109,25 +101,16 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, User $user)
+    public function update(StoreUserRequest $request, User $user)
     {
-
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'required|min:8|confirmed'
-        ]);
-        $user->update($request->all());
-        return redirect()->route('najhry');
+        $user->update($request->validated());
+        return redirect()->route('topGames');
     }
 
-    public function adminUpdate(User $user)
+    public function adminUpdate(StoreUserRequest $request, User $user)
     {
-        $attributes = request()->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'required|min:8|confirmed'
-        ]);
+        $attributes = $request->validated();
+
         $user->update($attributes);
         return redirect()->route('admin.users');
     }

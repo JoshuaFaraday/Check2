@@ -16,34 +16,33 @@ $('.like').on('click', function (event) {
     })
         .done(function (data) {
             //FAR JE PLAZDNY LIKE a FAS JE PRNY LIKE
+            /*uložim do premenej button element na ktory som klikol*/
             let button = $(event.target);
             if (isLike) {
-                if (button.hasClass('far fa-thumbs-up')) {
-                    button.removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
+                if (button.is('.far')) {
+                    button.removeClass('far').addClass('fas');
                     button.removeClass('text-secondary').addClass('text-success');
                 } else {
-                    button.removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up');
+                    button.removeClass('fas').addClass('far');
                     button.removeClass('text-success').addClass('text-secondary');
                 }
             } else {
 
-                if (button.hasClass('far fa-thumbs-down')) {
-                    button.removeClass('far fa-thumbs-down').addClass('fas fa-thumbs-down');
+                if (button.is('.far')) {
+                    button.removeClass('far').addClass('fas');
                     button.removeClass('text-secondary').addClass('text-danger');
                 } else {
-                    button.removeClass('fas fa-thumbs-down').addClass('far fa-thumbs-down');
+                    button.removeClass('fas').addClass('far');
                     button.removeClass('text-danger').addClass('text-secondary');
                 }
             }
-
+            /*Kontrola aby bolo iba jedno tlačidlo stlačene*/
             if (isLike) {
                 button.next().removeClass('fas fa-thumbs-down').addClass('far fa-thumbs-down');
                 button.next().removeClass('text-danger').addClass('text-secondary');
-                button.removeClass('text-secondary').addClass('text-success');
             } else {
                 button.prev().removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up');
                 button.prev().removeClass('text-success').addClass('text-secondary');
-                button.removeClass('text-secondary').addClass('text-danger');
             }
 
             $(event.target).parent().prev().text(data[0]);
@@ -93,7 +92,7 @@ $('#commentText').keypress(function (event) {
                         '                                    </div>\n' +
                         '                                </div>\n' +
                         '                                <div class="pt-2 pl-2">\n' +
-                        '                                    <p>' + data.text + '</p>\n' +
+                        '                                    <p class="preserve">' + data.text + '</p>\n' +
                         '                                </div>\n' +
                         '                            </div>\n' +
                         '                        </div>');

@@ -31,19 +31,6 @@
 
 </head>
 
-<style>
-    .container-lg {
-        margin-left: 0;
-    }
-
-    .nav-bk4 {
-        background: #070000;
-        background: -webkit-linear-gradient(to right, #070000, #4C0001, #070000);
-        background: linear-gradient(to right, #070000, #4C0001, #070000);
-    }
-</style>
-
-
 <body>
 <div class="d-flex flex-column min-vh-100" id="app">
     <nav class="navbar navbar-expand-md navbar-dark nav-bk4 shadow-sm justify-content-start">
@@ -70,13 +57,14 @@
                     </li>
 
                     @auth()
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="{{ route('upload') }}">Upload post</a>--}}
-{{--                        </li>--}}
+                        {{--                        <li class="nav-item">--}}
+                        {{--                            <a class="nav-link" href="{{ route('upload') }}">Upload post</a>--}}
+                        {{--                        </li>--}}
                         @if(Auth::user()->id == 1)
-                            <a class="nav-link" href="{{ route('admin.users') }}">{{ __('Admin-Users') }}</a>
-                            <a class="nav-link" href="{{ route('admin.games') }}">{{ __('Admin-Games') }}</a>
-                            <a class="nav-link" href="{{ route('admin.posts') }}">{{ __('Admin-Posts') }}</a>
+                            <li><a class="nav-link" href="{{ route('admin.users') }}">{{ __('Admin-Users') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('admin.games') }}">{{ __('Admin-Games') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('admin.posts') }}">{{ __('Admin-Posts') }}</a></li>
+
                         @endif
                     @endauth
 
@@ -103,7 +91,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
 
@@ -111,7 +99,6 @@
                             <a class="dropdown-item" href="{{ route('user.edit', Auth::user()->id)}}">
                                 {{ __('Edit') }}
                             </a>
-
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
@@ -145,7 +132,8 @@
             <a
                 class="btn btn-primary btn-floating m-1"
                 style="background-color: #ac2bac;"
-                href="https://www.instagram.com/_andrej_minar/"
+                href="https://www.instagram.com/budfri.sk/"
+                target="_blank"
                 role="button"
             ><i class="fab fa-instagram"></i
                 ></a>
@@ -155,6 +143,7 @@
                 class="btn btn-primary btn-floating m-1"
                 style="background-color: #333333;"
                 href="https://github.com/JoshuaFaraday/Check2.git"
+                target="_blank"
                 role="button"
             ><i class="fab fa-github"></i
                 ></a>

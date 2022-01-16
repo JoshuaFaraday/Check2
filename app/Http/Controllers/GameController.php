@@ -2,21 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Games\StoreGameRequest;
 use App\Models\Game;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('stranky.topGames',['games'=>Game::all()->sortByDesc('rating')]);
+        if ($request->is('admin/*')) {
+            return view('admin.games', ['games' => Game::all()]);
+        } else {
+            return view('stranky.topGames', ['games' => Game::all()->sortByDesc('rating')]);
+        }
     }
 
-    public function adminIndex() {
-        return view('admin.games',['games'=>Game::all()]);
+    public function create()
+    {
+        return view('admin.games.create');
     }
 
+    public function store(StoreGameRequest $request)
+    {
+        $attributes = $request->validated();
 
+        $path = request()->file('image')->store('games', 'public');
+        $attributes['image'] = $path;
+
+        Game::create($attributes);
+        return redirect()->route('admin.games');
+    }
 
     public function edit(Game $game)
     {
@@ -24,18 +39,10 @@ class GameController extends Controller
     }
 
 
-    public function update(Request $request, Game $game)
+    public function update(StoreGameRequest $request, Game $game)
     {
-        $attributes = $request->validate([
-            'image' => 'required|image',
-            'name' => 'required|string',
-            'relase_date' => 'required|digits:4|integer|min:1900|max:2099',
-            'platform' => 'required|string|max:30',
-            'genre' => 'required|string|max:30',
-            'HW_requirements' => 'required|string|max:15',
-            'rating' => 'required|integer|min:0|max:100',
-            'description' => 'required|string|max:100'
-        ]);
+        $attributes = $request->validated();
+
         $path = request()->file('image')->store('games', 'public');
         $attributes['image'] = $path;
         $game->update($attributes);
@@ -47,34 +54,4 @@ class GameController extends Controller
         $game->delete();
         return redirect()->route('admin.games');
     }
-
-    public function create()
-    {
-        return view('admin.games.create');
-
-    }
-
-    public function store()
-    {
-
-        $attributes = request()->validate([
-            'image' => 'required|image',
-            'name' => 'required|string',
-            'relase_date' => 'required|digits:4|integer|min:1900|max:2099',
-            'platform' => 'required|string|max:30',
-            'genre' => 'required|string|max:30',
-            'HW_requirements' => 'required|string|max:15',
-            'rating' => 'required|integer|min:0|max:100',
-            'description' => 'required|string|max:100'
-
-        ]);
-        $path = request()->file('image')->store('games', 'public');
-        $attributes['image'] = $path;
-
-
-        Game::create($attributes);
-        return redirect()->route('admin.games');
-    }
-
-
 }

@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-
-
     public function index(Post $post)
     {
         return view('stranky.commentForm', [
@@ -41,17 +39,14 @@ class CommentController extends Controller
                 'text' => $comment->text
             ];
         }
-
     }
 
     public function destroy(Comment $comment)
     {
         $post_id = $comment->post()->first()->id;
-        if (Auth::user()->id == 1 || Auth::user()->id == $comment->author()->first()->id ) {
+        if (Auth::user()->id == 1 || Auth::user()->id == $comment->author()->first()->id) {
             $comment->delete();
         }
         return redirect()->back();
     }
-
-
 }

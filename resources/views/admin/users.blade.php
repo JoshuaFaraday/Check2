@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12 table-responsive">
                 <a href="{{route('admin.users.create')}}" class="btn btn-sn btn-primary ">Add User <i
                         class="fas fa-plus"></i></a>
 

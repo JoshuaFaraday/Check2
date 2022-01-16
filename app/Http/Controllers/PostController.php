@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Posts\StorePostRequest;
 use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -9,66 +10,47 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-
-    public function indexAll()
+    public function index(Post $post, Request $request)
     {
-        return view('stranky.posts');
+        if ($request->is('admin/*')) {
+            return view('admin.posts', ['posts' => Post::all()]);
+        } else {
+            return view('stranky.posts');
+        }
     }
 
-    public function index(Post $post)
+    public function show(Post $post)
     {
-        return view('stranky.post',[
-            'post'=>$post
+        return view('stranky.post', [
+            'post' => $post
         ]);
-    }
-
-
-    public function adminIndex() {
-        return view('admin.posts',['posts'=>Post::all()]);
     }
 
     public function create()
     {
         return view('admin.posts.create');
-
     }
 
-
-    public function store()
+    public function store(StorePostRequest $request)
     {
+        $attributes = $request->validated();
 
-        $attributes = request()->validate([
-            'image' => 'required|image',
-            'title'=> 'required|string',
-            'text'=>'required|string',
-
-        ]);
         $path = request()->file('image')->store('posts', 'public');
         $attributes['image'] = $path;
-
 
         Post::create($attributes);
         return redirect(route('admin.posts'));
     }
 
-    public function destroy(Post $post)
-    {
-        $post->delete();
-        return redirect()->route('admin.posts');
-    }
-
-    public function adminEdit(Post $post)
+    public function edit(Post $post)
     {
         return view('admin.posts.edit', ['post' => $post]);
     }
 
-    public function adminUpdate(Post $post)
+    public function update(StorePostRequest $request, Post $post)
     {
-        $attributes = request()->validate([
-            'image' => 'required|image',
-            'title'=> 'required|string',
-            'text'=>'required|string',
-        ]);
+        $attributes = $request->validated();
+
         $path = request()->file('image')->store('posts', 'public');
         $attributes['image'] = $path;
 
@@ -76,6 +58,11 @@ class PostController extends Controller
         return redirect()->route('admin.posts');
     }
 
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect()->route('admin.posts');
+    }
 
     public function postLike(Request $request)
     {
@@ -96,7 +83,7 @@ class PostController extends Controller
             if ($already_like == $is_like) {
                 $like->delete();
 
-                return [$post->likes()->where('like','=','1')->count(), $post->likes()->where('like','=','0')->count()] ;
+                return [$post->likes()->where('like', '=', '1')->count(), $post->likes()->where('like', '=', '0')->count()];
             }
         } else {
             $like = new Like();
@@ -112,7 +99,7 @@ class PostController extends Controller
             $like->save();
         }
 
-        return [$post->likes()->where('like','=','1')->count(), $post->likes()->where('like','=','0')->count()];
+        return [$post->likes()->where('like', '=', '1')->count(), $post->likes()->where('like', '=', '0')->count()];
     }
 
 }

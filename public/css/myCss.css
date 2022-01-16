@@ -1,26 +1,24 @@
-
-body {
-    margin: 0;
-    font-family: "Nunito", sans-serif;
-    font-size: 0.9rem;
-    font-weight: 400;
-    line-height: 1.6;
-    /*color: #212529;*/
-    text-align: left;
-    /*background-color: #f8fafc;*/
-    /*  background-color: #F28C00;*/
-    background-color: #2C2F33;
-    font-palette: light;
-    background-size: cover;
-    color: #99AAB5;
+.container-lg {
+    margin-left: 0;
 }
-
+/*Navbar*/
+.nav-bk4 {
+    background: #070000;
+    background: -webkit-linear-gradient(to right, #070000, #4C0001, #070000);
+    background: linear-gradient(to right, #070000, #4C0001, #070000);
+}
 
 .navbar-brand img {
     width: 50px;
     height: 50px;
 }
+/*Navbar*/
+body {
+    background-color: #2C2F33;
+    color: #99AAB5;
+}
 
+/*About page*/
 .info {
     font-style: italic;
     color: #99AAB5;
@@ -52,56 +50,6 @@ body {
     background-color: #cbb5ac;
 }
 
-.card-img-top {
-    align-content: center;
-    align-self: center;
-    height: 25rem;
-    width: 25.7rem;
-}
-
-.card-body {
-    background-color: #2C2F33;
-    box-shadow: 0 4px 8px rgba(0.5, 0.5, 0.5, 0.5);
-}
-
-.contact {
-    text-align: center;
-
-}
-
-/*.map-container{*/
-
-/*    height:100%;*/
-
-/*}*/
-.map-container iframe {
-
-    height: 520px;
-    width: 80%;
-
-}
-
-td, tr {
-    color: #99AAB5;
-}
-
-
-/* Zoom In #1 */
-.hover01 img {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
-    position: relative;
-}
-
-.hover01 img:hover {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-    position: relative;
-
-}
-
 .carousel-indicators [data-bs-target] {
     box-sizing: content-box;
     flex: 0 1 auto;
@@ -120,24 +68,67 @@ td, tr {
     transition: opacity .6s ease;
 }
 
-
 .d-md-block {
     background: #383637;
     opacity: 75%;
 }
+/*About page*/
 
-/*.rounded-pill{*/
-/*    margin-right: 10%;*/
-/*}*/
+.contact {
+    text-align: center;
+}
+.map-container iframe {
+    height: 520px;
+    width: 80%;
+}
+/*Contact page*/
 
+/*Post component*/
+.card-img-top {
+    align-content: center;
+    align-self: center;
+    height: 25rem;
+    width: 25.7rem;
+}
+/*Post component*/
 
+.card-body {
+    background-color: #2C2F33;
+    box-shadow: 0 4px 8px rgba(0.5, 0.5, 0.5, 0.5);
+}
+/*zmena farbu textu v tabulkach (admin)*/
+td, tr {
+    color: #99AAB5;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #4237c4;
+}
+
+/* topGames&Postcomponent Zoom In #1 */
+.hover01 img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    position: relative;
+}
+
+.hover01 img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    position: relative;
+
+}
+
+/*postcomponent*/
 .cardNastenka {
     box-shadow: 0 4px 8px rgba(0.5, 0.5, 0.5, 0.5);
     overflow: hidden;
     background-color: #2C2F33;
     border-radius: 10px;
+    width: 25.7rem
 }
-
 
 .card-bodyNastenka {
     flex: 1 1 auto;
@@ -150,23 +141,6 @@ td, tr {
     width: 18rem;
 }
 
-
-.tabulkaprva {
-. table, . th, . td border-width: 3 px;
-    border-collapse: unset;
-    text-align: center;
-}
-
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #4237c4;
-}
-
-/*th {*/
-/*    background-color: #4c110f;*/
-/*    font-weight: bolder;*/
-
-/*}*/
-
 .cardNajHry {
     box-shadow: 0 4px 8px rgba(0.5, 0.5, 0.5, 0.5);
     overflow: hidden;
@@ -174,7 +148,7 @@ td, tr {
     border-radius: 10px;
 }
 
-.neviem {
+.imageTopGames {
     max-width: 100%;
 }
 
@@ -183,10 +157,6 @@ td, tr {
 }
 
 .card-text {
-    /*!*white-space: nowrap;*!*/
-    /*overflow: hidden;*/
-    /*text-overflow: ellipsis;*/
-
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 3;
@@ -198,25 +168,51 @@ td, tr {
     margin-top: -10%;
 }
 
-
 @media only screen and (max-width: 500px) {
 
     .image {
         height: 15rem;
     }
 
-
-}
-
-@media only screen and (min-width: 500px) {
-    .image {
-        height: 20rem;
-
+    .ml-5 {
+        margin-left: 0 !important;
     }
 
+    .card-img-top {
+        height: 13rem;
+        width: 14.7rem;
+    }
+}
+
+@media only screen and (min-width: 310px) {
+    .card-img-top {
+        height: 100%;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 500px) {
+
+    .image {
+        height: 20rem;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+
+    .table-responsive {
+        display: table;
+    }
+}
+
+/* Table when viewport is sized: 0 - 1000 */
+@media only screen and (max-width: 1000px) {
+    .table {
+        width: 55rem;
+    }
 }
 
 @media only screen and (min-width: 1000px) {
+
 
     .image {
         height: 35rem;
@@ -224,6 +220,14 @@ td, tr {
 
     .post {
         padding: 0 0px;
+    }
+
+    .table-responsive{
+        display: block;
+    }
+
+    .table {
+        width: 100%;
     }
 }
 
@@ -238,11 +242,6 @@ td, tr {
         padding: 0 350px;
     }
 }
-
-
-/*.post {*/
-/*    padding: 0 500px;*/
-/*}*/
 
 .comment-timestamp {
     font-size: 12px;

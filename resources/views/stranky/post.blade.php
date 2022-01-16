@@ -1,12 +1,10 @@
 @extends('layouts.app')
-
 @section('content')
-
     <div class="d-flex justify-content-center flex-column my-n4 ">
 
         <div class="d-flex justify-content-center flex-column">
             <div class="image overflow-hidden">
-                <img src="{{ asset('storage/' . $post->image) }}">
+                <img src="{{ asset('storage/' . $post->image) }}" alt="...">
             </div>
             <div class="d-flex justify-content-between post mt-1">
                 <div>
@@ -29,20 +27,21 @@
                     <h3>Comments:</h3>
                     <div class="d-flex flex-column">
                         @auth
-                        <a href="#" class="commentButton btn btn-secondary">Add comment</a>
-                        <div style="display: none " id="commentWrapper" data-postid="{{$post->id}}">
-                            <textarea class="form-control" rows="5" name="commentText" id="commentText"></textarea> /*validacia spravena cez ajax*/
-                            <p id="commentsList-p" class="text-danger" style="display: none">Comment can not be
-                                empty!</p>
+                            <a href="#" class="commentButton btn btn-secondary">Add comment</a>
+                            <div style="display: none " id="commentWrapper" data-postid="{{$post->id}}">
+                                {{--                            /*validacia spravena cez ajax*/--}}
+                                <textarea class="form-control" rows="5" name="commentText" id="commentText"></textarea>
+                                <p id="commentsList-p" class="text-danger" style="display: none">Comment can not be
+                                    empty!</p>
 
-                        </div>
+                            </div>
                         @endauth
                         @guest
                             <div class="cardNastenka card-bodyNastenka d-flex flex-column justify-content-center">
                                 <p>You need to be logged in to post comments !</p>
                                 <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </div>
-                            @endguest
+                        @endguest
                     </div>
                     <div id="commentsList">
                         @foreach($post->comments->reverse() as $comment)
@@ -63,19 +62,19 @@
                                             </div>
                                             <div class="p-2">
                                                 @auth
-                                                @if(Auth::user()->id == 1 || Auth::user()->id == $comment->author()->first()->id)
+                                                    @if(Auth::user()->id == 1 || Auth::user()->id == $comment->author()->first()->id)
 
-                                                    <form action="{{route('comment.destroy',$comment->id)}}"
-                                                          method="POST"
-                                                          enctype="multipart/form-data">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" title="Delete"
-                                                                class="btn btn-sn btn-danger"
-                                                                data-confirm="Are you sure?"><i
-                                                                class="far fa-trash-alt"></i></button>
-                                                    </form>
-                                                @endif
+                                                        <form action="{{route('comment.destroy',$comment->id)}}"
+                                                              method="POST"
+                                                              enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" title="Delete"
+                                                                    class="btn btn-sn btn-danger"
+                                                                    data-confirm="Are you sure?"><i
+                                                                    class="far fa-trash-alt"></i></button>
+                                                        </form>
+                                                    @endif
                                                 @endauth
                                             </div>
                                         </div>

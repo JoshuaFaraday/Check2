@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12 table-responsive">
                 <a href="{{route('admin.games.create')}}" class="btn btn-sn btn-primary ">Add Game <i
                         class="fas fa-plus"></i></a>
 
@@ -25,7 +25,7 @@
                             <th scope="row">{{$game->id}}</th>
                             <td>{{$game->name}}</td>
                             <td>
-                                <img width="40px" src="{{ asset('storage/' . $game->image) }}">
+                                <img width="40" src="{{ asset('storage/' . $game->image) }}" alt="{{$game->name}}">
                             </td>
                             <td>{{$game->rating}} %</td>
                             <td>{{$game->created_at}}</td>

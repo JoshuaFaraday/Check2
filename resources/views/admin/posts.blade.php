@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12 table-responsive">
                 <a href="{{route('admin.posts.create')}}" class="btn btn-sn btn-primary ">Add Post <i
                         class="fas fa-plus"></i></a>
 
@@ -26,7 +26,7 @@
                             <th scope="row">{{$post->id}}</th>
                             <td><a href="{{ route('post',$post->id) }} " class="text-decoration-none text-light">{{$post->title}}</a></td>
                             <td>
-                                <img width="40px" src="{{ asset('storage/' . $post->image) }}">
+                                <img width="40" src="{{ asset('storage/' . $post->image) }}" alt="{{$post->name}}">
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
@@ -53,7 +53,18 @@
                                     @endif
                                 </div>
                             </td>
-                            <td>{{$post->comments->count()}}</td>
+                            <td>
+                                @if($post->comments->count() > 0)
+                                    <div class="text-light">
+                                        {{$post->comments->count()}}
+                                    </div>
+                                @else
+                                    <div class="text-secondary">
+                                        {{$post->comments->count()}}
+                                    </div>
+                                @endif
+
+                            </td>
                             <td>{{$post->created_at}}</td>
                             <td>
                                 <div class="d-flex justify-content-around">

@@ -9,10 +9,10 @@
                     <div class="overflow-hidden hover01">
 
                         @if($game->image != null)
-                            <img class="neviem" src="{{ asset('storage/' . $game->image) }}"
+                            <img class="imageTopGames" src="{{ asset('storage/' . $game->image) }}"
                                  alt="{{$game->name}}">
                         @else
-                            <img class="neviem" src="{{ asset('storage/placeholder.jpg') }}"
+                            <img class="imageTopGames" src="{{ asset('storage/placeholder.jpg') }}"
                                  alt="{{$game->name}}">
                         @endif
                     </div>
@@ -26,9 +26,9 @@
                             <p class="card-text">Genre: {{$game->genre}}</p>
                             <p class="card-text">HW requirements: {{$game->HW_requirements}}</p>
                             <div class="border-top border-secondary">
-                                @if($game->rating < 50)
+                                @if($game->rating<50)
                                     <strong class="card-text text-danger">Rating: {{$game->rating}}</strong>
-                                @elseif($game->rating < 75)
+                                @elseif($game->rating<75)
                                     <strong class="card-text text-warning ">Rating: {{$game->rating}}</strong>
                                 @else
                                     <strong class="card-text text-success">Rating: {{$game->rating}}</strong>
