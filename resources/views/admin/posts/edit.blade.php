@@ -10,10 +10,10 @@
                     <div>
                         <div class="mb-3">
                             @if($post->image != null)
-                                <img class="neviem" src="{{ asset('storage/' . $post->image) }}"
+                                <img class="imageTopGames" src="{{ asset('storage/' . $post->image) }}"
                                      alt="{{$post->title}}">
                             @else
-                                <img class="neviem" src="{{ asset('storage/placeholder.jpg') }}"
+                                <img class="imageTopGames" src="{{ asset('storage/placeholder.jpg') }}"
                                      alt="{{$post->title}}">
                             @endif
                         </div>
