@@ -64,7 +64,7 @@
                         <div class="mb-3">
                             <label for="name" class="form-label">Description</label>
                             <textarea required class="border border-secondary p-2 w-100" id="description" rows="5"
-                                      name="description"
+                                      name="description" placeholder="Input length in max 100 characters"
                             >{{old('description')}}</textarea>
                             <div class="form-group text-danger">
                                 {{$errors->first('description')}}

@@ -73,6 +73,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Game::factory()->create([
+            'image' => 'games/jfo.jpg',
             'name' => 'Star Wars Jedi: Fallen Order',
             'relase_date' => '2020',
             'platform' => 'PC/PS4/XBOX',
@@ -83,6 +84,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Game::factory()->create([
+            'image' => 'games/metroo.jpeg',
             'name' => 'Metro Exodus',
             'relase_date' => '2019',
             'platform' => 'PC/PS4/XBOX',
@@ -104,6 +106,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Game::factory()->create([
+            'image' => 'games/eternal.jpg',
             'name' => 'Doom Eternal',
             'relase_date' => '2020',
             'platform' => 'PC/PS4/XBOX',
@@ -114,6 +117,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Game::factory()->create([
+            'image' => 'games/c2077.jpg',
             'name' => 'Cyberpunk 2077',
             'relase_date' => '2020',
             'platform' => 'PC/PS4/XBOX',
@@ -124,6 +128,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Game::factory()->create([
+            'image' => 'games/valhalla.jpg',
             'name' => 'Assassins Creed: Valhalla',
             'relase_date' => '2020',
             'platform' => 'PC/PS4/XBOX',

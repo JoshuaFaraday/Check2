@@ -90,10 +90,8 @@
             </div>
         </div>
     </div>
-
     <script>
         var token = '{{csrf_token()}}';
         var urlComment = '{{route('addComment')}}';
     </script>
-
 @endsection

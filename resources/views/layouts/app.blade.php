@@ -147,9 +147,7 @@
                 role="button"
             ><i class="fab fa-github"></i
                 ></a>
-
         </div>
-
     </footer>
 </div>
 </body>

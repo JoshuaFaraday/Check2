@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Aginev\Datagrid\Datagrid;
-use App\Http\Requests\Users\StoreUserRequest;
+use App\Http\Requests\Users\CreateUserRequest;
+use App\Http\Requests\Users\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +52,7 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreUserRequest $request)
+    public function store(CreateUserRequest $request)
     {
         $user = User::create($request->validated());
         $user->save();
@@ -101,18 +102,18 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(StoreUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update($request->validated());
-        return redirect()->route('topGames');
-    }
+        if ($request->is('admin/*')) {
+            $attributes = $request->validated();
 
-    public function adminUpdate(StoreUserRequest $request, User $user)
-    {
-        $attributes = $request->validated();
+            $user->update($attributes);
+            return redirect()->route('admin.users');
+        } else {
+            $user->update($request->validated());
+            return redirect()->route('topGames');
+        }
 
-        $user->update($attributes);
-        return redirect()->route('admin.users');
     }
 
     /**
