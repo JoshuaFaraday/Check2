@@ -37,7 +37,7 @@
 
         <a class="navbar-brand img-fluid" href="{{ url('/') }}">
             <img src="{{ asset('img/game__storage__play__server__database-512.png') }}" alt="dataIkona">
-            {{ config('app.name', 'Laravel') }}
+{{--            {{ config('app.name', 'Laravel') }}--}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

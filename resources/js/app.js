@@ -3,11 +3,9 @@ let postId = -1;
 
 $('.like').on('click', function (event) {
     event.preventDefault();
-    let temp = event.target;
 
     let isLike = event.target.previousElementSibling == null;
-
-    postId = temp.parentNode.dataset['postid'];
+    postId = event.target.parentNode.dataset['postid'];
     $.ajax({
         method: 'POST',
         url: urlLike,
@@ -72,7 +70,6 @@ $('#commentText').keypress(function (event) {
 
         })
             .done(function (data) {
-                /* tu zmenit stranku */
 
                 if (data !== false) {
 
@@ -99,7 +96,6 @@ $('#commentText').keypress(function (event) {
                     $('#commentWrapper').slideToggle('fast');
                     $('#commentText').val('');
                 }
-
 
             })
             .fail(function (data) {

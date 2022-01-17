@@ -9,7 +9,7 @@
         <a href="{{ route('post',$post->id) }} " class="h3 text-light text-decoration-none">{{$post->title}}</a>
         <div class="socials d-flex justify-content-start">
 
-            <div class="likes px-2" id="likes">
+            <div class="likes px-2">
                 {{$post->likes()->where('like','=','1')->count()}}
             </div>
             <div data-postid="{{$post->id}}">
@@ -44,7 +44,7 @@
                        class=" text-decoration-none far fa-thumbs-down text-secondary"></a>
                 @endguest
             </div>
-            <div class="dislikes px-2" id="dislikes">
+            <div class="dislikes px-2" >
                 {{$post->likes()->where('like','=','0')->count()}}
             </div>
 

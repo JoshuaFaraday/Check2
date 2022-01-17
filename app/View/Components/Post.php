@@ -7,8 +7,6 @@ use Illuminate\View\Component;
 class Post extends Component
 {
     public $post;
-    //TODO do buducna priradit usera
-
     /**
      * Create a new component instance.
      *

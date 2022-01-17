@@ -12,10 +12,10 @@
                         <legend>Editing: {{$game->name}}</legend>
                         <div class="mb-3">
                             @if($game->image != null)
-                                <img class="neviem" src="{{ asset('storage/' . $game->image) }}"
+                                <img class="imageTopGames" src="{{ asset('storage/' . $game->image) }}"
                                      alt="{{$game->name}}">
                             @else
-                                <img class="neviem" src="{{ asset('storage/placeholder.jpg') }}"
+                                <img class="imageTopGames" src="{{ asset('storage/placeholder.jpg') }}"
                                      alt="{{$game->name}}">
                             @endif
                         </div>
